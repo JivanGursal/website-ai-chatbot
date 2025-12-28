@@ -1,0 +1,46 @@
+#ai-chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+#chat-header {
+  background: #111827;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+
+#chat-messages {
+  height: 220px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+#chat-input {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  outline: none;
+}
+
+.user {
+  text-align: right;
+  margin: 5px 0;
+  color: #2563eb;
+}
+
+.bot {
+  text-align: left;
+  margin: 5px 0;
+  color: #111827;
+}
