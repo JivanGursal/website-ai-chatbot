@@ -1,7 +1,8 @@
 from fastapi import APIRouter
 from uuid import uuid4
 
-router = APIRouter()
+router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
+
 
 @router.post("/create-bot")
 def create_bot(name: str, prompt: str):
@@ -9,12 +10,12 @@ def create_bot(name: str, prompt: str):
 
     script = f"""
 <script
-  src="https://website-ai-chatbot-production.up.railway.app/static/widget.js"
+  src="YOUR_DOMAIN/static/widget.js"
   data-bot-id="{bot_id}">
 </script>
 """
 
     return {
         "bot_id": bot_id,
-        "script": script
+        "embed_code": script
     }
