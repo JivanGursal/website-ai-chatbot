@@ -20,3 +20,20 @@ WEBSITE CONTENT:
     conn.commit()
 
     print("BOT SAVED SUCCESSFULLY")
+
+def get_bot(bot_id: str):
+    cursor.execute(
+        "SELECT bot_id, name, system_prompt, website_url FROM bots WHERE bot_id = ?",
+        (bot_id,)
+    )
+    row = cursor.fetchone()
+
+    if not row:
+        return None
+
+    return {
+        "bot_id": row[0],
+        "name": row[1],
+        "system_prompt": row[2],
+        "website_url": row[3]
+    }
