@@ -11,8 +11,8 @@ class ChatRequest(BaseModel):
 
 @router.post("/")
 def chat(req: ChatRequest):
-    bot = get_bot(req.bot_id)
 
+    bot = get_bot(req.bot_id)
     print("BOT FETCH:", req.bot_id, bot is not None)
 
     if not bot:
