@@ -9,6 +9,9 @@ app = FastAPI(
     title="Website AI Chatbot",
     version="1.0.0"
 )
+@app.on_event("startup")
+def start():
+    init_db()
 
 # CORS (allow widget from any website)
 app.add_middleware(

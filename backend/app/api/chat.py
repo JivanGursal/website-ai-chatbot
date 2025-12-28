@@ -11,10 +11,13 @@ class ChatRequest(BaseModel):
 
 @router.post("/")
 def chat(req: ChatRequest):
-    system_prompt = get_bot(req.bot_id)
+    bot_id = req.bot_id                      # ✅ FIX 1
+    system_prompt = get_bot(bot_id)          # ✅ FIX 2
+
+    print("BOT FETCH:", bot_id, system_prompt is not None)
 
     if not system_prompt:
         return {"reply": "Bot configuration not found."}
 
-    reply = ask_llm(system_prompt, req.message)
+    reply = ask_llm(system_prompt, req.message)  # ✅ FIX 3
     return {"reply": reply}
