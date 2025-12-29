@@ -13,12 +13,10 @@ class ChatRequest(BaseModel):
 def chat(req: ChatRequest):
 
     bot = get_bot(req.bot_id)
-    print("BOT FETCH:", req.bot_id, bot is not None)
+    print("BOT FETCH:", req.bot_id, bot)
 
     if not bot:
         return {"reply": "Bot configuration not found."}
 
-    system_prompt = bot["system_prompt"]
-
-    reply = ask_llm(system_prompt, req.message)
+    reply = ask_llm(bot["system_prompt"], req.message)
     return {"reply": reply}
